@@ -1,0 +1,60 @@
+{
+  "name": "xai-grok-vscode",
+  "displayName": "xai-grok-vscode",
+  "description": "A VSCode extension for x.Ai's Grok",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.97.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "grok.ask",
+        "title": "Grok: Ask"
+      },
+      {
+        "command": "grok.pasteAndAsk",
+        "title": "Grok: Paste and Ask"
+      }
+    ],
+    "configuration": {
+      "properties": {
+        "grok.apiKey": {
+          "type": "string",
+          "default": "xai-5cxVEk62RVd1SQdraf42I4QsjLglSzNYfTpNQaPuruUKnpurZ6Fc7gwMIeIdKHeMqKwzTfGbyAdphcSj",
+          "description": "Grok API Key"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "~20.17.19",
+    "@types/vscode": "^1.97.0",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.19.0",
+    "typescript": "^5.7.3",
+    "vsce": "^2.15.0"
+  },
+  "dependencies": {
+    "@vscode/vsce": "^3.2.2",
+    "axios": "^1.7.9"
+  }
+}
