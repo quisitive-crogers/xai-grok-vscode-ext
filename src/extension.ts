@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import axios from 'axios';
+import { queryGrok } from './grokService';
 
 export function activate(context: vscode.ExtensionContext) {
 	// Command: Ask Grok with selected text or input
@@ -29,27 +29,5 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(askGrok, pasteAndAsk);
 }
 
-async function queryGrok(input: string): Promise<string> {
-	const apiKey = vscode.workspace.getConfiguration().get('grok.apiKey') as string;
-	if (!apiKey) {
-		vscode.window.showErrorMessage('Set your Grok API key in VS Code settings!');
-		return 'API key missing';
-	}
-
-	try {
-		const response = await axios.post(
-			'https://api.x.ai/v1/chat/completions', // Placeholder—check xAI docs
-			{
-				model: 'grok-2', // Or 'grok-3' if available
-				messages: [{ role: 'user', content: input }]
-			},
-			{ headers: { Authorization: `Bearer ${apiKey}` } }
-		);
-		return response.data.choices[0].message.content;
-	} catch (error) {
-		console.error(error);
-		return 'Error querying Grok';
-	}
-}
 
 export function deactivate() { }
