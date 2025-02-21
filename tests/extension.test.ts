@@ -13,7 +13,7 @@ suite('Extension Test Suite', () => {
         // Stub axios.post before each test
         axiosStub = sinon.stub(axios, 'post').resolves({
             data: {
-                choices: [{ message: { content: 'Mocked Grok response' } }]
+                choices: [{ message: { content: 'pass' } }]
             }
         });
     });
