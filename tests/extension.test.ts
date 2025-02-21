@@ -25,6 +25,6 @@ suite('Extension Test Suite', () => {
 
 	test('Sample test', async () => {
 		var response = await queryGrok("respond to this with the word \"pass\".");
-		assert.strictEqual(response, "API key missing");
+		assert.strictEqual(response, "pass");
 	});
 });
