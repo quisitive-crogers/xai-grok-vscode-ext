@@ -3,6 +3,9 @@
   "displayName": "xai-grok-vscode",
   "description": "A VSCode extension for x.Ai's Grok",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quisitive-crogers/xai-grok-vscode-ext.git"},
   "engines": {
     "vscode": "^1.97.0"
   },
